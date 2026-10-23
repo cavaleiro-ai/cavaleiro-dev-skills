@@ -1,0 +1,118 @@
+name: Bug report
+description: A skill, hook, script, or plugin manifest does not behave as documented.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a problem. Please **do not** paste secrets, tokens, private URLs, or proprietary code.
+        Security issues must be reported privately — see [SECURITY.md](https://github.com/cavaleiro-ai/cavaleiro-dev-skills/blob/main/SECURITY.md).
+
+        **Before filing:** search open *and* closed issues. If the problem also happens with the original project unchanged, say so below.
+        A session went wrong and you are not sure why? Ask your agent to "figure out what went wrong with superpowers in this session"; the `diagnosing-superpowers` skill prepares a report.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part is affected?
+      options:
+        - A skill (skills/<name>/SKILL.md or its prompts)
+        - SessionStart hook / bootstrap (hooks/, harness plugin entry points)
+        - Helper script (skills/*/scripts/, scripts/)
+        - Brainstorming visual companion (server, browser page)
+        - Plugin or marketplace manifest
+        - Documentation / README / translations
+        - Tests
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: file
+    attributes:
+      label: File(s)
+      description: Path(s) of the affected file(s), with line numbers if possible.
+      placeholder: skills/subagent-driven-development/scripts/task-brief:30
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Be specific. What did you or the agent do, and what did the skill, hook, or script do?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: The exact prompt or command, in order. A minimal reproduction gets fixed fastest.
+      placeholder: |
+        1. Fresh session in Claude Code with only this plugin installed
+        2. Sent: "Let's make a react todo list"
+        3. ...
+    validations:
+      required: true
+  - type: dropdown
+    id: harness
+    attributes:
+      label: Harness
+      options:
+        - Claude Code
+        - Codex (app or CLI)
+        - Cursor
+        - Gemini CLI
+        - GitHub Copilot CLI
+        - OpenCode
+        - Pi
+        - Hermes Agent
+        - Kimi Code
+        - Muse
+        - Other (describe in Environment)
+        - Not applicable (script or test only)
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: We assume an agent may have filed this — tell us what produced it.
+      value: |
+        - Cavaleiro Dev Skills version or commit:
+        - Harness version:
+        - Model and version:
+        - All plugins installed:
+        - OS and shell:
+    validations:
+      required: true
+  - type: dropdown
+    id: upstream
+    attributes:
+      label: Does it also happen with the original project?
+      options:
+        - "No — only with Cavaleiro Dev Skills"
+        - "Yes — also in the original project"
+        - "Not checked"
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Debug log or transcript
+      description: The single most helpful thing you can include. Redact anything sensitive. Rendered as text.
+      render: text
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and this is not a duplicate.
+          required: true
+        - label: I removed secrets, tokens, and private data from this report.
+          required: true

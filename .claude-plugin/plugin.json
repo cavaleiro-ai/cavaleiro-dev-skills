@@ -1,0 +1,19 @@
+{
+  "name": "superpowers",
+  "description": "Core skills library for Claude Code: TDD, debugging, collaboration patterns, and proven techniques",
+  "version": "7.0.0",
+  "author": {
+    "name": "Cavaleiro AI"
+  },
+  "homepage": "https://github.com/cavaleiro-ai/cavaleiro-dev-skills",
+  "repository": "https://github.com/cavaleiro-ai/cavaleiro-dev-skills",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "tdd",
+    "debugging",
+    "collaboration",
+    "best-practices",
+    "workflows"
+  ]
+}

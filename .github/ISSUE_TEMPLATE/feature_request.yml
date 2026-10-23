@@ -1,0 +1,57 @@
+name: Feature request
+description: Propose a change or addition to Cavaleiro Dev Skills.
+title: "[Feature]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Search open *and* closed issues first — many ideas have been discussed, some were declined on purpose.
+        Skills here are general-purpose: something useful only for one domain, team, or tool usually belongs in its own plugin.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe it from your own experience — what you were doing, what went wrong or was missing, and why it mattered. "It would be cool if..." is not a problem statement.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What specifically should happen? Be concrete.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Other approaches, and why this one is better.
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Who benefits?
+      options:
+        - Anyone, on any kind of project
+        - Mostly my domain, team, or tool (may belong in a separate plugin)
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: We weigh proposals grounded in a real session differently from ones reasoned from documentation — tell us what produced this.
+      value: |
+        - Cavaleiro Dev Skills version or commit:
+        - Harness and version:
+        - Model and version:
+        - All plugins installed:
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and this has not been proposed before.
+          required: true

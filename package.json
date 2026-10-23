@@ -1,0 +1,32 @@
+{
+  "name": "superpowers",
+  "version": "7.0.0",
+  "description": "Cavaleiro Dev Skills: skills and runtime bootstrap for coding agents",
+  "author": "Cavaleiro AI",
+  "homepage": "https://github.com/cavaleiro-ai/cavaleiro-dev-skills",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cavaleiro-ai/cavaleiro-dev-skills.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cavaleiro-ai/cavaleiro-dev-skills/issues"
+  },
+  "type": "module",
+  "main": ".opencode/plugins/superpowers.js",
+  "keywords": [
+    "pi-package",
+    "skills",
+    "tdd",
+    "debugging",
+    "collaboration",
+    "workflow"
+  ],
+  "pi": {
+    "extensions": [
+      "./.pi/extensions/superpowers.ts"
+    ],
+    "skills": [
+      "./skills"
+    ]
+  }
+}

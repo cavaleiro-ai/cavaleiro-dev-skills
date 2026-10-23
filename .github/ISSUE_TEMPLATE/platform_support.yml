@@ -1,0 +1,48 @@
+name: Harness / platform support request
+description: Request support for a new IDE, editor, or AI coding tool.
+title: "[Harness]: "
+labels: ["new-harness", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A real integration loads the `using-superpowers` bootstrap at session start, so that a clean session sent
+        "Let's make a react todo list" triggers the `brainstorming` skill before any code is written.
+        Copying skill files by hand, or anything that needs a per-session opt-in, is not an integration.
+        See [docs/porting-to-a-new-harness.md](https://github.com/cavaleiro-ai/cavaleiro-dev-skills/blob/main/docs/porting-to-a-new-harness.md).
+  - type: input
+    id: harness
+    attributes:
+      label: Which IDE or platform?
+      description: Name and link.
+    validations:
+      required: true
+  - type: textarea
+    id: extension-system
+    attributes:
+      label: Does it have a plugin or extension system?
+      description: Link its documentation. Does it offer a session-start hook or another way to inject context?
+    validations:
+      required: true
+  - type: textarea
+    id: manual
+    attributes:
+      label: Have you tried a manual setup?
+      description: What did you try, and what happened?
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      value: |
+        - Harness you use today and its version:
+        - Model and version:
+        - All plugins installed:
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues for this IDE or platform.
+          required: true

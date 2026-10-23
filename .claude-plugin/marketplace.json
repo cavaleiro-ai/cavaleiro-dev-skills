@@ -1,0 +1,18 @@
+{
+  "name": "superpowers-dev",
+  "description": "Development marketplace for Cavaleiro Dev Skills",
+  "owner": {
+    "name": "Cavaleiro AI"
+  },
+  "plugins": [
+    {
+      "name": "superpowers",
+      "description": "Core skills library for Claude Code: TDD, debugging, collaboration patterns, and proven techniques",
+      "version": "7.0.0",
+      "source": "./",
+      "author": {
+        "name": "Cavaleiro AI"
+      }
+    }
+  ]
+}

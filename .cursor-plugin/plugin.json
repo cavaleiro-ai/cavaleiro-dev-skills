@@ -1,0 +1,22 @@
+{
+  "name": "superpowers",
+  "displayName": "Cavaleiro Dev Skills",
+  "description": "Core skills library: TDD, debugging, collaboration patterns, and proven techniques",
+  "version": "7.0.0",
+  "author": {
+    "name": "Cavaleiro AI"
+  },
+  "homepage": "https://github.com/cavaleiro-ai/cavaleiro-dev-skills",
+  "repository": "https://github.com/cavaleiro-ai/cavaleiro-dev-skills",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "tdd",
+    "debugging",
+    "collaboration",
+    "best-practices",
+    "workflows"
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks-cursor.json"
+}

@@ -1,0 +1,44 @@
+name: Plugin tests
+
+# Plugin-infrastructure tests only: no LLM sessions, no secrets, read-only
+# token. Skill-behavior evals run real agents and stay out of public CI (see
+# docs/testing.md).
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# A newer push to the same branch or pull request supersedes the older run.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  plugin-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "24"
+      - name: Install optional test tools (Graphviz, pytest)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends graphviz python3-pytest
+      - name: Run plugin tests
+        run: bash tests/run-plugin-tests.sh
+      - name: Lint shell scripts
+        # tests/claude-code/ holds the LLM-driven test helpers; they carry
+        # upstream ShellCheck warnings and are not part of the plugin.
+        run: bash scripts/lint-shell.sh $(git ls-files | grep -v '^tests/claude-code/')
+      - name: Check for whitespace errors
+        # RELEASE-NOTES.md is upstream's history, kept byte-for-byte.
+        run: git diff --check "$(git hash-object -t tree /dev/null)" HEAD -- . ':!RELEASE-NOTES.md'

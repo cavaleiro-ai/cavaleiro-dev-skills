@@ -1,0 +1,21 @@
+{
+  "name": "superpowers",
+  "version": "7.0.0",
+  "description": "An agentic skills framework & software development methodology that works: planning, TDD, debugging, and collaboration workflows.",
+  "author": {
+    "name": "Cavaleiro AI"
+  },
+  "homepage": "https://github.com/cavaleiro-ai/cavaleiro-dev-skills",
+  "repository": "https://github.com/cavaleiro-ai/cavaleiro-dev-skills",
+  "license": "MIT",
+  "keywords": [
+    "brainstorming",
+    "subagent-driven-development",
+    "skills",
+    "planning",
+    "tdd",
+    "debugging",
+    "code-review",
+    "workflow"
+  ]
+}
